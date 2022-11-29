@@ -2,30 +2,41 @@ package com.tw;
 
 public class MultiplicationTable {
     public String create(int start, int end) {
-        return null;
+        return isValid(start, end)?generateTable(start, end):null;
     }
 
     public Boolean isValid(int start, int end) {
-        return null;
+        return isStartNotBiggerThanEnd(start, end) && isInRange(start) && isInRange(end);
     }
 
     public Boolean isInRange(int number) {
-        return null;
+        return number >= 1 && number <= 1000;
     }
 
     public Boolean isStartNotBiggerThanEnd(int start, int end) {
-        return null;
+        return start <= end;
     }
 
     public String generateTable(int start, int end) {
-        return null;
+        String result="";
+        for(int index = start; index<=end; index++){
+            result += generateLine(start,index);
+            if(index < end){
+                result+=System.lineSeparator();
+            }
+        }
+        return result;
     }
 
     public String generateLine(int start, int row) {
-        return null;
+        String result="";
+        for(int index = start; index<=row; index++){
+            result += generateSingleExpression(index,row)+"  ";
+        }
+        return result.substring(0,result.length()-2);
     }
 
     public String generateSingleExpression(int multiplicand, int multiplier) {
-        return null;
+        return multiplicand+"*"+multiplier+"="+(multiplicand*multiplier);
     }
 }
